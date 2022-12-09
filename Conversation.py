@@ -20,6 +20,32 @@ trainer.train([
     "Minha internet não tá pegando",
     "Analisando... Já verificou se o equipamento está conectado à tomada?",
     "Sim",
+    "Você saberia dizer se a queda de conexão afeta a região em que você mora?",
+    "Não sei",
+    "Bom, em caso de perda total de conexão, redirecionaremos você ao suporte técnico.",
+    
+])
+
+trainer.train([
+    "Bom dia",
+    "Olá! Em que posso ajudar?",
+    "Internet aqui tá é pôde",
+    "Analisando... Já verificou se o equipamento está conectado à tomada?",
+    "Sss",
+    "Você saberia dizer se a queda de conexão afeta a região em que você mora?",
+    "N",
+    "Bom, em caso de perda total de conexão, redirecionaremos você ao suporte técnico.",
+    
+])
+
+trainer.train([
+    "Boa tarde",
+    "Olá! Em que posso ajudar?",
+    "Internet tá pegando não",
+    "Analisando... Já verificou se o equipamento está conectado à tomada?",
+    "Tá ligado",
+    "Você saberia dizer se a queda de conexão afeta a região em que você mora?",
+    "Nn",
     "Bom, em caso de perda total de conexão, redirecionaremos você ao suporte técnico.",
     
 ])
@@ -30,7 +56,9 @@ trainer.train([
     "Minha internet tá falhando",
     "Analisando... Já verificou se o equipamento está conectado à tomada?",
     "Ss",
-    "Bom, em caso de perda total de conexão, redirecionaremos você ao suporte técnico.",
+    "Você saberia dizer se a queda de conexão afeta a região em que você mora?",
+    "Caiu",
+    "Já que o problema é regional, mandaremos um de nossos técnicos para resolver a situação e manteremos você informado!",
     
 ])
 
@@ -40,7 +68,9 @@ trainer.train([
     "A internet tá devagar",
     "Analisando... Já verificou se o equipamento está conectado à tomada?",
     "Verifiquei",
-    "Bom, em caso de perda total de conexão, redirecionaremos você ao suporte técnico.",
+    "Você saberia dizer se a queda de conexão afeta a região em que você mora?",
+    "Sim",
+    "Já que o problema é regional, mandaremos um de nossos técnicos para resolver a situação e manteremos você informado!",
     
 ])
 
@@ -50,7 +80,9 @@ trainer.train([
     "A internet aqui tá pouca",
     "Analisando... Já verificou se o equipamento está conectado à tomada?",
     "Já",
-    "Bom, em caso de perda total de conexão, redirecionaremos você ao suporte técnico.",
+    "Você saberia dizer se a queda de conexão afeta a região em que você mora?",
+    "Afeta",
+    "Já que o problema é regional, mandaremos um de nossos técnicos para resolver a situação e manteremos você informado!",
     
 ])
 
@@ -60,7 +92,9 @@ trainer.train([
     "A internet tá fraca",
     "Analisando... Já verificou se o equipamento está conectado à tomada?",
     "Tá conectado",
-    "Bom, em caso de perda total de conexão, redirecionaremos você ao suporte técnico.",
+    "Você saberia dizer se a queda de conexão afeta a região em que você mora?",
+    "Pdpa",
+    "Já que o problema é regional, mandaremos um de nossos técnicos para resolver a situação e manteremos você informado!",
     
 ])
 
@@ -70,7 +104,9 @@ trainer.train([
     "Minha internet tá fraca",
     "Analisando... Já verificou se o equipamento está conectado à tomada?",
     "Tá botado aqui",
-    "Bom, em caso de perda total de conexão, redirecionaremos você ao suporte técnico.",
+    "Você saberia dizer se a queda de conexão afeta a região em que você mora?",
+    "Caiu foi tudo aqui",
+    "Já que o problema é regional, mandaremos um de nossos técnicos para resolver a situação e manteremos você informado!",
     
 ])
 
@@ -79,12 +115,11 @@ while True:
         resposta = input("Você: ")
         bot_input = chatbot.get_response(resposta)
         verificacao = str(bot_input)
-        if verificacao == "Bom, em caso de perda total de conexão, redirecionaremos você ao suporte técnico.":
-            print("CaririTalk: Bom, em caso de perda total de conexão, redirecionaremos você ao suporte técnico.")
-            sleep(1)
-            print("CaririTalk: A empresa X agradece seu contato!")
-            break
         print(f"CaririTalk: {bot_input}")
-
+        if verificacao == "Bom, em caso de perda total de conexão, redirecionaremos você ao suporte técnico." or verificacao == "Já que o problema é regional, mandaremos um de nossos técnicos para resolver a situação e manteremos você informado!":
+            sleep(1)
+            print("CaririTalk: A empresa [Nome da Empresa] agradece seu contato!")
+            break
+        
     except(KeyboardInterrupt, EOFError, SystemExit):
         break
