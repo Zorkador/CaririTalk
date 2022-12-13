@@ -41,7 +41,7 @@ trainer.train([
 trainer.train([
     "Boa tarde",
     "Olá! Em que posso ajudar?",
-    "Internet tá pegando não",
+    "Lascou a internet",
     "Analisando... Já verificou se o equipamento está conectado à tomada?",
     "Tá ligado",
     "Você saberia dizer se a queda de conexão afeta a região em que você mora?",
